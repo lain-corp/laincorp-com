@@ -1,0 +1,39 @@
+name: Deploy to IC Testnet (Local)
+
+on:
+  push:
+    branches: [dev, test]
+  workflow_dispatch:
+
+jobs:
+  deploy-testnet:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        target: wasm32-unknown-unknown
+        override: true
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install DFX
+      run: |
+        sh -ci "$(curl -fsSL https://internetcomputer.org/install.sh)"
+        echo "$HOME/bin" >> $GITHUB_PATH
+
+    - name: Start Local Replica
+      run: |
+        dfx start --background --clean
+
+    - name: Deploy Canisters to Local Testnet
+      run: |
+        dfx deploy --network local
