@@ -55,3 +55,4 @@ public/
 astro/cache/
 
 node_modules
+.dfx

@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProposalList from '../components/dao/ProposalList.tsx';
+import CreateProposalForm from '../components/dao/CreateProposalForm.tsx';
+---
+
+<BaseLayout title="LainCorp DAO">
+  <h1 style="text-align: center; color: var(--vp-neon); font-size: 2.5rem;">
+    🏛️ LainCorp DAO
+  </h1>
+  <p style="text-align: center; margin-bottom: 2rem;">
+    Govern the future of LainCorp with proposals and voting.
+  </p>
+  <section style="max-width: 800px; margin: 0 auto;">
+    <CreateProposalForm client:load />
+    <hr style="margin: 2rem 0;" />
+    <ProposalList client:load />
+  </section>
+</BaseLayout>
