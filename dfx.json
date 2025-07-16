@@ -1,0 +1,27 @@
+{
+  "canisters": {
+    "laincorp-com-backend": {
+      "candid": "src/laincorp-com-backend/laincorp-com-backend.did",
+      "package": "laincorp-com-backend",
+      "type": "rust"
+    },
+    "laincorp-com-frontend": {
+      "dependencies": [
+        "laincorp-com-backend"
+      ],
+      "source": [
+        "src/laincorp-com-frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "laincorp-com-frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}

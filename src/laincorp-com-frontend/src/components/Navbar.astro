@@ -1,0 +1,12 @@
+---
+import LoginButton from './LoginButton.tsx';
+---
+<nav style="padding: 1rem; background: #1e1e2f; display: flex; justify-content: space-between;">
+  <a href="/" style="color: var(--vp-pink); font-size: 1.4rem;">LainCorp</a>
+  <div style="display: flex; gap: 1rem;">
+    <a href="/about">About</a>
+    <a href="/dao">DAO</a>
+    <a href="/contact">Contact</a>
+    <LoginButton client:load />
+  </div>
+</nav>
