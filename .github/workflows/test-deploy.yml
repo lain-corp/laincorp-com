@@ -40,10 +40,17 @@ jobs:
         sudo mv dfx /usr/local/bin/
         dfx --version
 
-
     - name: Start Local Replica
       run: |
         dfx start --background --clean
+
+    - name: Install frontend dependencies
+      working-directory: src/laincorp-com-frontend
+      run: npm ci
+
+    - name: Build frontend
+      working-directory: src/laincorp-com-frontend
+      run: npm run build
 
     - name: Deploy Canisters to Local Testnet
       run: |
