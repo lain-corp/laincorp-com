@@ -52,7 +52,7 @@ jobs:
       run: cargo generate-lockfile
 
     - name: Generate canister JS bindings
-      run: dfx generate laincorp-com-backend
+      run: dfx generate
 
     - name: Deploy Canisters to Local Testnet
       run: |
