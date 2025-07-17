@@ -20,9 +20,6 @@ jobs:
         target: wasm32-unknown-unknown
         override: true
 
-    - name: Install Rust target for wasm
-      run: rustup target add wasm32-unknown-unknown
-
     - name: Install Node.js
       uses: actions/setup-node@v3
       with:
@@ -51,12 +48,11 @@ jobs:
       working-directory: src/laincorp-com-frontend
       run: npm ci
 
-    - name: Check wasm32
+    - name: Generate Cargo.lock
       working-directory: src/laincorp-com-backend
-      run : cargo build --target wasm32-unknown-unknown --release
+      run: cargo generate-lockfile
      
     - name: Deploy Canisters to Local Testnet
       run: |
-        cargo generate-lockfile
         dfx deploy laincorp-com-backend
 
