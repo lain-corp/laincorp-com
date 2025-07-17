@@ -43,6 +43,10 @@ jobs:
       run: |
         dfx start --background --clean
 
+    - name: Generate canister JS bindings
+      run: |
+        dfx generate laincorp_com_backend
+
     - name: Install frontend dependencies
       working-directory: src/laincorp_com_frontend
       run: |
@@ -54,7 +58,7 @@ jobs:
       working-directory: src/laincorp_com_backend
       run: cargo generate-lockfile
 
-    - name: Generate canister JS bindings
+    - name: Build canisters locally
       run: |
         dfx generate laincorp_com_backend
         dfx canister create --all
