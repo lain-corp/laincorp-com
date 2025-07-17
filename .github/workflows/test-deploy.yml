@@ -20,6 +20,9 @@ jobs:
         target: wasm32-unknown-unknown
         override: true
 
+    - name: Install Rust target for wasm
+      run: rustup target add wasm32-unknown-unknown
+
     - name: Install Node.js
       uses: actions/setup-node@v3
       with:
