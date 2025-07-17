@@ -54,9 +54,11 @@ jobs:
         npm install
         npm run build
 
-    - name: Generate Cargo.lock
+    - name: Generate Cargo.lock and vulnerability checker
       working-directory: src/laincorp_com_backend
-      run: cargo generate-lockfile
+      run: |
+        cargo install cargo-audit
+        cargo generate-lockfile
 
     - name: Build canisters locally
       run: |
@@ -67,4 +69,4 @@ jobs:
     - name: Deploy Canisters to Playground
       run: |
         cargo build --target wasm32-unknown-unknown --release --verbose
-        dfx deploy --playground
+        dfx deploy
