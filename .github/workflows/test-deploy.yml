@@ -44,11 +44,13 @@ jobs:
         dfx start --background --clean
 
     - name: Install frontend dependencies
-      working-directory: src/laincorp-com-frontend
-      run: npm ci
+      working-directory: src/laincorp_com_frontend
+      run: |
+        npm ci
+        npm install
 
     - name: Generate Cargo.lock
-      working-directory: src/laincorp-com-backend
+      working-directory: src/laincorp_com_backend
       run: cargo generate-lockfile
 
     - name: Generate canister JS bindings

@@ -1,5 +1,5 @@
 [workspace]
 members = [
-    "src/laincorp-com-backend"
+    "src/laincorp_com_backend"
 ]
 resolver = "2"

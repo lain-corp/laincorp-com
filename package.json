@@ -5,14 +5,10 @@
   },
   "name": "laincorp-com",
   "scripts": {
-    "build": "npm run build --workspaces --if-present",
-    "prebuild": "npm run prebuild --workspaces --if-present",
-    "pretest": "npm run prebuild --workspaces --if-present",
-    "start": "npm start --workspaces --if-present",
-    "test": "npm test --workspaces --if-present"
-  },
-  "type": "module",
-  "workspaces": [
-    "src/laincorp-com-frontend"
-  ]
+    "build": "npm run build",
+    "prebuild": "npm run",
+    "pretest": "npm run",
+    "start": "npm start",
+    "test": "npm test"
+  }
 }

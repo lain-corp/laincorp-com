@@ -1,5 +1,5 @@
 import { Actor, HttpAgent } from '@dfinity/agent';
-import { idlFactory } from '../../../declarations/laincorp-com-backend'; // Adjust this
+import { idlFactory } from '../../../declarations/laincorp_com_backend'; // Adjust this
 import { Principal } from '@dfinity/principal';
 
 const agent = new HttpAgent({

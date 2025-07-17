@@ -1,16 +1,15 @@
 {
   "canisters": {
-    "laincorp-com-backend": {
-      "candid": "src/laincorp-com-backend/laincorp-com-backend.did",
-      "package": "laincorp-com-backend",
+    "laincorp_com_backend": {
+      "candid": "src/laincorp_com_backend/laincorp_com_backend.did",
+      "package": "laincorp_com_backend",
       "type": "rust"
     },
-    "laincorp-com-frontend": {
+    "laincorp_com_frontend": {
       "source": [
-        "src/laincorp-com-frontend/dist"
+        "src/laincorp_com_frontend/dist"
       ],
-      "type": "assets",
-      "workspace": "laincorp-com-frontend"
+      "type": "assets"
     }
   },
   "defaults": {
