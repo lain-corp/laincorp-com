@@ -9,7 +9,8 @@
       "source": [
         "src/laincorp_com_frontend/dist"
       ],
-      "type": "assets"
+      "type": "assets",
+      "dependencies": ["laincorp_com_backend"]
     }
   },
   "defaults": {
