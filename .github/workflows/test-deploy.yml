@@ -55,7 +55,7 @@ jobs:
 
     - name: Generate canister JS bindings
       run: |
-        dfx generate
+        dfx generate laincorp_com_backend
         dfx canister create --all
         dfx build
 
