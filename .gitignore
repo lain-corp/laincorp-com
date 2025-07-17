@@ -56,3 +56,4 @@ astro/cache/
 
 node_modules
 .dfx
+target

@@ -1,0 +1,51 @@
+name: Deploy to Internet Computer Mainnet
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        target: wasm32-unknown-unknown
+        override: true
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install DFX
+      run: |
+        sh -ci "$(curl -fsSL https://internetcomputer.org/install.sh)"
+        echo "$HOME/bin" >> $GITHUB_PATH
+
+    - name: Add DFX Identity
+      run: |
+        mkdir -p ~/.config/dfx/identity/github-ci
+        echo "${{ secrets.DFX_IDENTITY_PEM }}" > ~/.config/dfx/identity/github-ci/identity.pem
+        dfx identity use github-ci
+
+    - name: Build and deploy canisters to mainnet
+      run: |
+        dfx start --background --clean
+        dfx build
+        dfx deploy --network ic
+      env:
+        DFX_NETWORK: ic
+
+    - name: Upload artifacts (optional)
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-artifacts
+        path: .dfx/ic/canisters/
