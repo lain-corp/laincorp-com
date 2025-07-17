@@ -47,5 +47,6 @@ jobs:
 
     - name: Deploy Canisters to Local Testnet
       run: |
-        dfx deploy --network local
+        cargocargo generate-lockfile
+        dfx deploy
 
