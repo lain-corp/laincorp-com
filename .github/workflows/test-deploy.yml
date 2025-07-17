@@ -29,13 +29,13 @@ jobs:
       run: |
         DFX_VERSION=0.15.4
         curl -L -o dfx.tar.gz https://github.com/dfinity/sdk/releases/download/0.18.0/dfx-0.18.0-x86_64-linux.tar.gz
-        curl checksum https://github.com/dfinity/sdk/releases/download/0.18.0/dfx-0.18.0-x86_64-linux.tar.gz.sha256
+        curl -L -o checksum https://github.com/dfinity/sdk/releases/download/0.18.0/dfx-0.18.0-x86_64-linux.tar.gz.sha256
         sha256sum dfx.tar.gz 
         sha256sum dfx.tar.gz > dfxsha
         cat dfxsha
         cat checksum
         
-        if [ "$(cat dfxsha)" = "$(cat checksum)" ]; then
+        if [ "$(cat dfxsha)" = "$(cat checksum | awk '{ print $1 }')" ]; then
           echo "Outputs match"
         else
           echo "Outputs do not match"
