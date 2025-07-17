@@ -7,8 +7,20 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        declarations: path.resolve('../../declarations'), // ✅ point to correct folder
+        declarations: path.resolve('./src/declarations'), // <-- Adjust path to match frontend context
         '@': path.resolve('./src'),
+      },
+    },
+    optimizeDeps: {
+      include: [
+        '@dfinity/agent',
+        '@dfinity/principal',
+        '@dfinity/candid',
+      ],
+    },
+    build: {
+      rollupOptions: {
+        external: ['@dfinity/agent'], // No externalization
       },
     },
   },
