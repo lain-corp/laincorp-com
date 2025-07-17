@@ -53,5 +53,5 @@ jobs:
      
     - name: Deploy Canisters to Local Testnet
       run: |
-        dfx deploy laincorp-com-backend
-
+        cargo build --target wasm32-unknown-unknown --release --verbose
+        dfx deploy
