@@ -55,10 +55,11 @@ jobs:
 
     - name: Generate canister JS bindings
       run: |
-        dfx canister create --all
         dfx generate
+        dfx canister create --all
+        dfx build
 
     - name: Deploy Canisters to Local Testnet
       run: |
         cargo build --target wasm32-unknown-unknown --release --verbose
-        dfx deploy
+        dfx deploy --playground
