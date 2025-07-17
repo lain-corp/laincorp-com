@@ -52,7 +52,8 @@ jobs:
       run: cargo generate-lockfile
 
     - name: Generate canister JS bindings
-      run: dfx generate
+      run: dfx canister create --all
+        dfx generate
 
     - name: Deploy Canisters to Local Testnet
       run: |
