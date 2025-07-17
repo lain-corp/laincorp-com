@@ -50,6 +50,5 @@ jobs:
 
     - name: Deploy Canisters to Local Testnet
       run: |
-        cargo install cargo-audit
         dfx deploy laincorp-com-backend
 
