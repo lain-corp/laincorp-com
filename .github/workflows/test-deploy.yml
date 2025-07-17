@@ -48,6 +48,7 @@ jobs:
       run: |
         npm ci
         npm install
+        npm run build
 
     - name: Generate Cargo.lock
       working-directory: src/laincorp_com_backend
@@ -59,7 +60,7 @@ jobs:
         dfx canister create --all
         dfx build
 
-    - name: Deploy Canisters to Local Testnet
+    - name: Deploy Canisters to Playground
       run: |
         cargo build --target wasm32-unknown-unknown --release --verbose
         dfx deploy --playground
