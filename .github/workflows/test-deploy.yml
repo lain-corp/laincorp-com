@@ -23,12 +23,12 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 18
+        node-version: 18.20.8
 
     - name: Install dfx CLI (non-interactive)
       run: |
-        curl -L -o dfx.tar.gz https://github.com/dfinity/sdk/releases/download/0.12.0/dfx-0.12.0-x86_64-linux.tar.gz
-        curl -L -o checksum https://github.com/dfinity/sdk/releases/download/0.12.0/dfx-0.12.0-x86_64-linux.tar.gz.sha256
+        curl -L -o dfx.tar.gz https://github.com/dfinity/sdk/releases/download/0.28.0/dfx-0.28.0-x86_64-linux.tar.gz
+        curl -L -o checksum https://github.com/dfinity/sdk/releases/download/0.28.0/dfx-0.28.0-x86_64-linux.tar.gz.sha256
         if [ "$(sha256sum dfx.tar.gz | awk '{ print $1}')" = "$(cat checksum | awk '{ print $1 }')" ]; then
           echo "Outputs match"
         else

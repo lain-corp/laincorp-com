@@ -1,11 +1,11 @@
 {
   "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=7.0.0"
+    "node": "18.20.8",
+    "npm": "10.8.2"
   },
   "name": "laincorp-com",
   "scripts": {
-    "build": "npm run build",
+    "build": "npm run",
     "prebuild": "npm run",
     "pretest": "npm run",
     "start": "npm start",
