@@ -6,9 +6,6 @@
       "type": "rust"
     },
     "laincorp-com-frontend": {
-      "dependencies": [
-        "laincorp-com-backend"
-      ],
       "source": [
         "src/laincorp-com-frontend/dist"
       ],
