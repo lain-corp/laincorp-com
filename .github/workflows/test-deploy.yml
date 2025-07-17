@@ -48,12 +48,8 @@ jobs:
       working-directory: src/laincorp-com-frontend
       run: npm ci
 
-    - name: Build frontend
-      working-directory: src/laincorp-com-frontend
-      run: npm run build
-
     - name: Deploy Canisters to Local Testnet
       run: |
         cargo install cargo-audit
-        dfx deploy
+        dfx deploy laincorp-com-backend
 
