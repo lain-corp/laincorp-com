@@ -48,9 +48,12 @@ jobs:
       working-directory: src/laincorp-com-frontend
       run: npm ci
 
+    - name: Check wasm32
+      working-directory: src/laincorp-com-backend
+      run : cargo build --target wasm32-unknown-unknown --release
+     
     - name: Deploy Canisters to Local Testnet
       run: |
         cargo generate-lockfile
-        cargo build --target wasm32-unknown-unknown --release
         dfx deploy laincorp-com-backend
 
